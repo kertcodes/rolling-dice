@@ -15,3 +15,38 @@ Creating a page where every time the user hits the "Roll Dice" button, the scree
 3) Check to see if the Dice Roll has been hit, if it has run the diceRoll function.
 
 */
+
+
+//Declare a function to simulate rolling a dice (random # btwn 1 - 6)
+function randomDie(){
+  return Math.floor(Math.random() * 6) + 1
+}
+
+/*
+let random1 = randomDie()
+let random2 = randomDie()
+
+console.log(`first die: ${random1}`)
+console.log(`second die: ${random2}`)
+*/
+
+//listen for click event
+//getElementById grabs the element from the HTML file, in this case, the RollDice button
+//onClick listens for click events
+document.getElementById("roll-dice").onclick = rollDice
+
+function combineDie(rando){
+  return `dice-${rando}`
+}
+
+function rollDice(){
+  console.log('dice is rolled')
+  random1 = randomDie()
+  random2 = randomDie()
+  console.log(`first die: ${random1}`)
+  console.log(`second die: ${random2}`)
+
+  //dynamically update html with new dice class (gives you new images)
+  document.getElementById("first-die").className = combineDie(random1)
+  document.getElementById("second-die").className = combineDie(random2)
+}

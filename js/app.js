@@ -18,6 +18,7 @@ Creating a page where every time the user hits the "Roll Dice" button, the scree
 
 
 //Declare a function to simulate rolling a dice (random # btwn 1 - 6)
+//generate a random number between 1 - 6 and store to a variable
 function randomDie(){
   return Math.floor(Math.random() * 6) + 1
 }
@@ -35,16 +36,17 @@ console.log(`second die: ${random2}`)
 //onClick listens for click events
 document.getElementById("roll-dice").onclick = rollDice
 
+//combine 'dice-' and random number to form the random class
 function combineDie(rando){
   return `dice-${rando}`
 }
 
 function rollDice(){
-  console.log('dice is rolled')
+  //console.log('dice is rolled')
   random1 = randomDie()
   random2 = randomDie()
-  console.log(`first die: ${random1}`)
-  console.log(`second die: ${random2}`)
+  //console.log(`first die: ${random1}`)
+  //console.log(`second die: ${random2}`)
 
   //dynamically update html with new dice class (gives you new images)
   document.getElementById("first-die").className = combineDie(random1)
